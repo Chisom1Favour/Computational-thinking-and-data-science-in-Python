@@ -12,4 +12,5 @@ class Circle:
     
 c = Circle(10)
 print(c.age)
+c.radius = 15
 print(c.circumference)
