@@ -10,15 +10,16 @@ class BankAccount:
 
     @property
     def account_id(self):
-        return self.name + _account_id
+        return f"{self.name.upper()}-{int(self._account_id)}"
 
     @property
     def balance(self):
+        print("Balance accessed")
         return self._amount
     @balance.setter
     def balance(self, value):
-        if value <= 0:
-            raise ValueError("Can't be negative")
+        if value < 0:
+            raise ValueError("Can't go negative")
         self._amount = value
     @property
     def pin(self):
@@ -30,7 +31,7 @@ class BankAccount:
         self._pin = value
     @property
     def is_overdrawn(self):
-        return False
+        return self._amount < 0
     
 
 acc = BankAccount("Ada", 1000, pin=1234)
