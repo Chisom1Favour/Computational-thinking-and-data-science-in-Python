@@ -6,6 +6,10 @@ class User:
         return self._age
     @age.setter
     def age(self, value):
-        if age < 0:
+        if value < 0:
             raise ValueError("Age must not be less than zero")
-        return self._age 
+        self._age = value
+
+u = User(13)
+print(u.age)
+u.age = -3
